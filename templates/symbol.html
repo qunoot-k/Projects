@@ -1,0 +1,22 @@
+ {% extends "layout.html" %}
+ {% block title %}
+     Quote
+ {% endblock %}
+
+ {% block main %}
+     <form action="/quote" method="post">
+        <div class="form-group">
+            <input class="form-control" id = "symbol" name="symbol" placeholder="Symbol" onkeyup="stoppedTyping()">
+        </div>
+        <button class="btn btn-primary" id = "submit" type="submit" disabled>Quote</button>
+    </form>
+    <script>
+        function stoppedTyping(){
+        if(document.getElementById('symbol').value.length > 0) {
+            document.getElementById('submit').disabled = false;
+        } else {
+            document.getElementById('submit').disabled = true;
+        }
+    }
+    </script>
+ {% endblock %}
