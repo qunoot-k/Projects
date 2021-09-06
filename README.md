@@ -1,3 +1,4 @@
+The problem has been taken from edabit (https://edabit.com/).
 Given a dictionary of student names and a list of their test
 scores over the semester, return a list of all the students
 who passed the course (in alphabetical order). However,
