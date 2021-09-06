@@ -1,1 +1,1 @@
-Each branch in this repository is an independent project that I have developed over the course of my education.
+A Java program to calculate the waiting time, turnaround time and display the ganth chart for each process involved using Shortest Job First (Preemptive) algorithm. 
