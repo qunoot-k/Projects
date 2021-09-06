@@ -1,4 +1,4 @@
-The problems has been taken from edabit (https://edabit.com/). Create a function that returns True if given inequality expression is correct and False otherwise. 
+The problem has been taken from edabit (https://edabit.com/). Create a function that returns True if given inequality expression is correct and False otherwise. 
 
 Example: correct_signs("3 < 7 < 11") ➞ True
 
