@@ -20,15 +20,12 @@ public class SJF_Preemptive {
 			data[i] = new Info();
 		}
 		for (int i = 0; i < numOfProcess; i++) {
-      // storing process ID
-			data[i].processID = (i + 1); 
+			data[i].processID = (i + 1); // storing process ID
 			System.out.println("\nProcess P" + data[i].processID);
-      // reading burstTime for each process
 			System.out.print("Burst Time: ");
-			data[i].burstTime = in.nextInt();
-      // input Arrival time for each process
+			data[i].burstTime = in.nextInt();// reading burstTime for each process
 			System.out.print("ArrivalTime: ");
-			data[i].arrivalTime = in.nextInt();
+			data[i].arrivalTime = in.nextInt();// input Arrival time for each process
 		}
 		sortArrival(data);
 		String chart = calcArrival(data);
@@ -54,7 +51,7 @@ public class SJF_Preemptive {
 		}
 	}
 
-	//Returns any 1 process that is waiting
+	// Returns any 1 process that is waiting
 	public static int findProcess(Info[] data, int[] duplicateBurst, int currentTime) {
 		for (int i = 0; i < numOfProcess; i++) {
 			if (data[i].arrivalTime <= currentTime && duplicateBurst[i] != 0) {
@@ -64,34 +61,34 @@ public class SJF_Preemptive {
 		return numOfProcess;
 	}
 
-	//Calculate Waiting Time and return Ganth chart as a string
+	// Calculate Waiting Time and return Ganth chart as a string
 	public static String calcArrival(Info[] data) {
 		String chart = "";
 		int firstArrived = data[0].arrivalTime;
 		int totalTimeFrame = firstArrived;
 		int[] duplicateBurst = new int[numOfProcess];
-		//Calculate total time required to complete all the process
+		// Calculate total time required to complete all the process
 		for (int i = 0; i < numOfProcess; i++) {
 			totalTimeFrame += data[i].burstTime;
 		}
-		//making a copy of the burst time for each process
+		// making a copy of the burst time for each process
 		for (int i = 0; i < numOfProcess; i++) {
 			duplicateBurst[i] = data[i].burstTime;
 		}
 		int minBurstProcess = findProcess(data, duplicateBurst, firstArrived);
-		//Loop will run until all process have completed
+		// Loop will run until all process have completed
 		for (int i = firstArrived; i < totalTimeFrame; i++) {
 			if (duplicateBurst[minBurstProcess] != 0) {
 				for (int j = 0; j < numOfProcess; j++) {
-					//A process has already arrived
-					//has the least burst Time 
-					//has not completed running
+					// A process has already arrived
+					// has the least burst Time
+					// has not completed running
 					if (data[j].arrivalTime <= i && duplicateBurst[j] < duplicateBurst[minBurstProcess]
 							&& duplicateBurst[j] != 0)
 						minBurstProcess = j;
 				}
 				for (int j = 0; j < numOfProcess; j++) {
-					//A process has arrived and it is waiting
+					// A process has arrived and it is waiting
 					if (data[j].arrivalTime <= i && duplicateBurst[j] != 0 && minBurstProcess != j)
 						data[j].waitingTime++; // Calculate waiting time for each process
 				}
@@ -104,12 +101,12 @@ public class SJF_Preemptive {
 			}
 			duplicateBurst[minBurstProcess]--;
 			// recording which process is running
-			chart += data[minBurstProcess].processID; 
+			chart += data[minBurstProcess].processID;
 		}
 		return chart;
 	}
 
-	//Calculating turn around Time
+	// Calculating turn around Time
 	public static void calcTurnAroundTime(Info[] data) {
 		for (int i = 0; i < numOfProcess; i++) {
 			data[i].turnAroundTime = data[i].waitingTime + data[i].burstTime;
@@ -137,18 +134,18 @@ public class SJF_Preemptive {
 				}
 			}
 		}
-		//Displaying Ganth Chart
+		// Displaying Ganth Chart
 		int length = chart.length();
 		int temp = 0;
 		String ganthChart = "";
 		for (int i = 0; i < length; i++) {
 			// chartAt() returns the ASCII value so to convert to int we subtract
 			// it with ASCII value of 0
-			if ((chart.charAt(i) - '0') == temp) 
+			if ((chart.charAt(i) - '0') == temp)
 				ganthChart += " * "; // * represents 1 unit time
 			else {
 				// Using ASCII value to convert char to int
-				temp = chart.charAt(i) - '0'; 
+				temp = chart.charAt(i) - '0';
 				ganthChart += " P" + temp + " * ";
 			}
 		}
