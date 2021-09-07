@@ -1,3 +1,3 @@
 Given a code in https://www.crummy.com/software/BeautifulSoup/bs4/doc/ <br/>
-a)	Print out the names of the three sisters.
+a)	Print out the names of the three sisters. <br/>
 b)	Change the links so that they use https:// instead of http:// and print the changed html.
