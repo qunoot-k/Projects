@@ -29,7 +29,7 @@ class CalculateFactorial implements Runnable {
 public class MultiThread {
 	public static void main(String[] args) throws InterruptedException {
 		
-		//using a HashMap tp store the number and its factorial as key value pair
+		//using a HashMap t0 store the number and its factorial as key value pair
 		HashMap<Integer, Integer> factorial = new HashMap<>();
 		Scanner in = new Scanner(System.in);
 		int num;
