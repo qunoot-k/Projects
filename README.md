@@ -1,1 +1,3 @@
-Each branch in this repository is an independent project that I have developed over the course of my education.
+A program to read a list of students from a file and create a linked list. Each entry in the link list has the student’s name, a pointer to the next student, and a pointer to a linked list of scores. There can up to four scores for each student. <br/>
+The program initializes the student list by reading the students’ names from the text file and creating null score lists. It then loops through the list, prompting the user to enter the scores for each student. The scores’ prompt includes the name of the student. <br/>
+After all scores have been entered, the program prints the scores for each student along with the score total, average score and grade.
